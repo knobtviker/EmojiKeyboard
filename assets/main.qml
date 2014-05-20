@@ -19,8 +19,7 @@ Page {
                         input.flags = TextInputFlag.VirtualKeyboardOff
                     }
                 }
-                //content.flags: TextContentFlag.ActiveTextOff | TextContentFlag.Emoticons
-                content.flags: TextContentFlag.ActiveText
+                content.flags: TextContentFlag.ActiveTextOff | TextContentFlag.Emoticons
                 focusRetentionPolicyFlags: FocusRetentionPolicy.LoseToFocusable
                 implicitLayoutAnimationsEnabled: false
                 horizontalAlignment: HorizontalAlignment.Fill
