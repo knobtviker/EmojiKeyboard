@@ -34,7 +34,7 @@ Container {
     
     horizontalAlignment: HorizontalAlignment.Fill
     verticalAlignment: VerticalAlignment.Bottom
-    preferredHeight: 450
+    preferredHeight: 400
     background: Color.create("#ff323232")
     bottomPadding: 6
     visible: (keyboard.visible || !rootEmojiKeyboard.keyboardVisible) ? false : true

@@ -10,8 +10,8 @@ Container {
     
     signal emojiTabClicked();
 
-    topPadding: 30 
-    bottomPadding: 30
+    topPadding: 12 
+    bottomPadding: 12
     leftMargin: 6
     rightMargin: 6
     preferredWidth: 288
