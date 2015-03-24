@@ -26,7 +26,7 @@
 
     <!-- A universally unique application identifier. Must be unique across all BlackBerry 10 applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>com.example.EmojiKeyboard</id>
+    <id>com.knobtviker.EmojiKeyboard</id>
     <configuration name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="arm/o.le-v7-g/EmojiKeyboard" entry="true" type="Qnx/Elf">EmojiKeyboard</asset>
@@ -69,7 +69,8 @@
     <!-- <copyright></copyright> -->
 
     <!--  Name of author which is used for signing. Must match the developer name of your development certificate. -->
-    <author>Example Inc.</author>
+    <authorId>gYAAgBHha-ad23X3MZ5OiS76teI</authorId>
+    <author>Knobtviker Inc.</author>
 
     <!--  Unique author ID assigned by signing authority. Required if using debug tokens. -->
     <!-- <authorId>ABC1234YjsnUk235h</authorId> -->

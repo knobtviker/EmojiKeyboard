@@ -1,19 +1,8 @@
-import bb.cascades 1.3
+import bb.cascades 1.4
 import com.knobtviker.Helpers 1.0
 
 Container { 
     id: rootEmojiKeyboard
-    
-    function getUnicodeCharacter(cp) {
-        if (cp >= 0 && cp <= 0xD7FF || cp >= 0xE000 && cp <= 0xFFFF) {
-            return String.fromCharCode(cp);
-        } else if (cp >= 0x10000 && cp <= 0x10FFFF) {
-            cp -= 0x10000;
-            var first = ((0xffc00 & cp) >> 10) + 0xD800
-            var second = (0x3ff & cp) + 0xDC00;
-            return String.fromCharCode(first) + String.fromCharCode(second);
-        }
-    }
     
     function toggleVisibility() {
         if (rootEmojiKeyboard.keyboardVisible) {
@@ -35,7 +24,7 @@ Container {
     horizontalAlignment: HorizontalAlignment.Fill
     verticalAlignment: VerticalAlignment.Bottom
     preferredHeight: 400
-    background: Color.create("#ff323232")
+    background: ui.palette.plain
     bottomPadding: 6
     visible: (keyboard.visible || !rootEmojiKeyboard.keyboardVisible) ? false : true
     minHeight: keyboard.visible ? keyboard.height : 0
@@ -63,7 +52,7 @@ Container {
     
     EmojiTabsContainer {
         onEmojiTabClicked: {
-            emojiGrid.fillListView(tabName, tabOrder)
+            emojiGrid.fillListView(tabOrder)
         }
     }
     

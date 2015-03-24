@@ -1,4 +1,4 @@
-import bb.cascades 1.3
+import bb.cascades 1.4
 import "EmojiLists.js" as EmojiLists
 
 Container {  
@@ -8,7 +8,7 @@ Container {
         rootEmojiTabsContainer.controls[0].emojiTabClicked();
     }
     
-    signal emojiTabClicked(string tabName, variant tabOrder);
+    signal emojiTabClicked(variant tabOrder);
     
     function handleSelection() {
         for (var i=0; i<rootEmojiTabsContainer.controls.length; i++)
@@ -21,55 +21,50 @@ Container {
     bottomPadding: 6
     leftPadding: 6
     rightPadding: 6
-    
+        
     EmojiTabButton {
-        sourceDirectory: "asset:///emoji/images/people/"
         tabButtonImageSource: "asset:///emoji/images/emoji_category_people.png"
         orderList: EmojiLists.people
         onEmojiTabClicked: {
             rootEmojiTabsContainer.handleSelection()
             selected = true
-            rootEmojiTabsContainer.emojiTabClicked(sourceDirectory, orderList)
+            rootEmojiTabsContainer.emojiTabClicked(orderList)
         }
     }
     EmojiTabButton {
-        sourceDirectory: "asset:///emoji/images/nature/"
         tabButtonImageSource: "asset:///emoji/images/emoji_category_nature.png"
         orderList: EmojiLists.nature
         onEmojiTabClicked: {
             rootEmojiTabsContainer.handleSelection()
             selected = true
-            rootEmojiTabsContainer.emojiTabClicked(sourceDirectory, orderList)
+            rootEmojiTabsContainer.emojiTabClicked(orderList)
         }
     }
     EmojiTabButton {
-        sourceDirectory: "asset:///emoji/images/objects/"
         tabButtonImageSource: "asset:///emoji/images/emoji_category_objects.png"
         orderList: EmojiLists.objects
         onEmojiTabClicked: {
             rootEmojiTabsContainer.handleSelection()
             selected = true
-            rootEmojiTabsContainer.emojiTabClicked(sourceDirectory, orderList)
+            rootEmojiTabsContainer.emojiTabClicked(orderList)
         }
     }
     EmojiTabButton {
-        sourceDirectory: "asset:///emoji/images/places/"
         tabButtonImageSource: "asset:///emoji/images/emoji_category_places.png"
         orderList: EmojiLists.places
         onEmojiTabClicked: {
             rootEmojiTabsContainer.handleSelection()
             selected = true
-            rootEmojiTabsContainer.emojiTabClicked(sourceDirectory, orderList)
+            rootEmojiTabsContainer.emojiTabClicked(orderList)
         }
     }
     EmojiTabButton {
-        sourceDirectory: "asset:///emoji/images/symbols/"
         tabButtonImageSource: "asset:///emoji/images/emoji_category_symbols.png"
         orderList: EmojiLists.symbols
         onEmojiTabClicked: {
             rootEmojiTabsContainer.handleSelection()
             selected = true
-            rootEmojiTabsContainer.emojiTabClicked(sourceDirectory, orderList)
+            rootEmojiTabsContainer.emojiTabClicked(orderList)
         }
     }
 }

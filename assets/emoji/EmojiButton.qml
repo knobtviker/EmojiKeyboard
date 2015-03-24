@@ -1,33 +1,35 @@
-import bb.cascades 1.3
+import bb.cascades 1.4
 
 Container { 
     id: rootEmojiButton
-    
-    function stripToChars(path) {
-        var result = ""
-        result = path.substring(path.indexOf("_")+1, path.lastIndexOf("_"))
-        return result
+
+    function getUnicodeCharacter(cp) {
+        if (cp >= 0 && cp <= 0xD7FF || cp >= 0xE000 && cp <= 0xFFFF) {
+            return String.fromCharCode(cp);
+        } else if (cp >= 0x10000 && cp <= 0x10FFFF) {
+            cp -= 0x10000;
+            var first = ((0xffc00 & cp) >> 10) + 0xD800
+            var second = (0x3ff & cp) + 0xDC00;
+            return String.fromCharCode(first) + String.fromCharCode(second);
+        }
     }
-    
-    property string chars: ""
+
     property bool touched: false
-    property alias imageSource: image.imageSource
-    onImageSourceChanged: {
-        rootEmojiButton.chars = rootEmojiButton.stripToChars(imageSource.toString())
+    property string charsSource: "" 
+    onCharsSourceChanged: {
+        iconLabel.text = rootEmojiButton.getUnicodeCharacter('0x' + rootEmojiButton.charsSource)
     }
     
-    background: touched ? ui.palette.primary : Color.create("#ff262626")
+    background: touched ? ui.palette.primary : ui.palette.plainBase
     layout: DockLayout {}
-    
-    ImageView { 
-        id: image
+
+    Label {
+        id: iconLabel
         opacity: rootEmojiButton.touched ? 0.75 : 1.0
-        minWidth: 64
-        maxWidth: 64
-        minHeight: 64
-        maxHeight: 64
         verticalAlignment: VerticalAlignment.Center
         horizontalAlignment: HorizontalAlignment.Center
+        textStyle.base: SystemDefaults.TextStyles.TitleText
+        textStyle.textAlign: TextAlign.Center
     }
 
     onTouch: {
@@ -37,7 +39,7 @@ Container {
             rootEmojiButton.touched = false
         } else if (event.touchType == TouchType.Up) {
             rootEmojiButton.touched = false
-            rootEmojiButton.ListItem.view.tapped(rootEmojiButton.chars)
+            rootEmojiButton.ListItem.view.tapped(iconLabel.text)
         }
     }
 }

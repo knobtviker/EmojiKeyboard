@@ -1,13 +1,13 @@
-import bb.cascades 1.3
+import bb.cascades 1.4
 
 Container { 
     id: rootEmojiGrid
     
-    function fillListView(path, order) {
+    function fillListView(order) {
         rootEmojiGrid.hasButtons = false
         emojiDataModel.clear()
         for (var i=0; i<order.length;i++) {
-            emojiDataModel.append(path+order[i])
+            emojiDataModel.append(order[i])
         }
         rootEmojiGrid.hasButtons = true
     }
@@ -56,6 +56,12 @@ Container {
         layout: GridListLayout {
             orientation: LayoutOrientation.LeftToRight
             headerMode: ListHeaderMode.None
+            //columnCount: 2 //BigText
+            //columnCount: 3 //BodyText
+            //columnCount: 3 //PrimaryText
+            columnCount: 3 //TitleText
+            //columnCount: 4 //SmallText
+            //columnCount: 4 //SubtitleText
         }
         dataModel: ArrayDataModel {
             id: emojiDataModel
@@ -63,7 +69,7 @@ Container {
         listItemComponents: [
             ListItemComponent {
                 EmojiButton {
-                    imageSource: ListItemData.toString()
+                    charsSource: ListItemData.toString()
                 }
             }
         ]

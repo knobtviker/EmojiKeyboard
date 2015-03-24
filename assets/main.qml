@@ -1,4 +1,4 @@
-import bb.cascades 1.3
+import bb.cascades 1.4
 import "emoji"
 
 Page {
@@ -38,7 +38,7 @@ Page {
             Button {
                 preferredHeight: 70
                 preferredWidth: 70
-                imageSource: emojiInput.keyboardVisible  ? (Application.themeSupport.theme.colorTheme.style == VisualStyle.Bright ? "asset:///emoji/images/ic_show_vkb_bright.png" : "asset:///emoji/images/ic_show_vkb_dark.png") : "asset:///emoji/images/people/emoji_1f604_64.png"
+                imageSource: emojiInput.keyboardVisible  ? (Application.themeSupport.theme.colorTheme.style == VisualStyle.Bright ? "asset:///emoji/images/ic_show_vkb_bright.png" : "asset:///emoji/images/ic_show_vkb_dark.png") : "asset:///emoji/images/emoji_category_people.png"
                 onClicked: {
                     textArea.toggleInputFlags()
                     if (!emojiInput.keyboardVisible) {
@@ -66,7 +66,7 @@ Page {
         EmojiKeyboard { 
             id: emojiInput
             onEmojiTapped: {
-                textArea.editor.insertPlainText(getUnicodeCharacter('0x'+chars));
+                textArea.editor.insertPlainText(chars);
                 textArea.requestFocus();
             }
         }

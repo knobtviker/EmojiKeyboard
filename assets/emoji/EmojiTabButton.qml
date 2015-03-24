@@ -1,4 +1,4 @@
-import bb.cascades 1.3
+import bb.cascades 1.4
 
 Container { 
     id: emojiTabButton
@@ -17,7 +17,7 @@ Container {
     preferredWidth: 288
     minWidth: 70
     maxWidth: 288
-    background: selected ? ui.palette.primary : Color.create("#ff191919")
+    background: selected ? ui.palette.primary : ui.palette.plainBase
     horizontalAlignment: HorizontalAlignment.Fill
     
     ImageButton { 
