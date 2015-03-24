@@ -1,7 +1,7 @@
 EmojiKeyboard
 =============
 
-Emoji Keyboard control made in Cascades for BlackBerry10 10.3 but in a few changes can be adapted to 10.2 or less.
+Emoji Keyboard control made in Cascades for BlackBerry10 10.3.1 but in a few changes can be adapted to 10.2 or less.
 
 How To Use
 ====================
@@ -21,7 +21,7 @@ Expose C++ class to QML.
 
 4. QML assets
 ---------------------
-Copy emoji folder from assets to your project assets folder. Emoji folder contains everything you need to use the keyboard, from pictures to Unicode arrays.
+Copy emoji folder from assets to your project assets folder. Emoji folder contains everything you need to use the keyboard, from controls to Unicode arrays.
 
 5. main.qml
 ---------------------
